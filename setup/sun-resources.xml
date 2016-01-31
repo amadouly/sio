@@ -9,7 +9,7 @@
     <property name="serverName" value="localhost"/>
     <property name="PortNumber" value="1527"/>
     <property name="DatabaseName" value="eMarket2015"/>
-    <property name="User" value="eMarket2015"/>
-    <property name="Password" value="Mikoumimi1"/>
+    <property name="User" value="eMarket"/>
+    <property name="Password" value="eMarket"/>
   </jdbc-connection-pool>
 </resources>
