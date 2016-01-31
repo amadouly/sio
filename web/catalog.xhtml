@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>Catalogue Produits</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <h:body>
+        <f:view>
+            <h:form id="formCatalog">
+                <!--Message ajouté après ajout d'un produit à la commande -->
+                <h:message for="formCatalog" showSummary="true" showDetail="true"/>
+                <ul>
+                    <li>
+                        <h:commandLink action="toIndex">
+                            <h:outputText value="Accueil" />          
+                        </h:commandLink>
+                    </li>
+                </ul>
+                <h:dataTable value="#{catalogManager.lstProd}" var="item">
+                    <h:column>
+                        <f:facet name="header">Code</f:facet>
+                        <h:outputText value="#{item.idProduit}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">NomProd</f:facet>
+                        <h:outputText value="#{item.nomProduit}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Prix</f:facet>
+                        <h:outputText value="#{item.prix}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Action</f:facet>
+                        <h:form> 
+                            <h:commandButton value="Ajouter" action="#{commandesManager.ajouterProduit()}">
+                                <f:setPropertyActionListener value="#{item.idProduit}" target="#{commandesManager.idProduit}" />
+                                <f:setPropertyActionListener value="#{item.nomProduit}" target="#{commandesManager.nomProduit}" />
+                                <f:setPropertyActionListener value="#{item.prix}" target="#{commandesManager.prix}" />
+                            </h:commandButton>
+                        </h:form>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>       
+    </h:body>
+</html>

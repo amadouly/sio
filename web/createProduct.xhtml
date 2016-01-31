@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <body>
+        <f:view>
+            <h:form>
+                <ul>
+                    <li>
+                        <h:commandLink action="toIndex">
+                            <h:outputText value="Accueil" />
+                        </h:commandLink>
+                    </li>
+                    <li>
+                        <h:commandLink action="toCatalog">
+                            <h:outputText value="Catalogue" />
+                        </h:commandLink>
+                    </li>
+                </ul>
+                <div>
+                    <h:outputLabel id="idProdLabel" for="idProduct" value="Code produit" />
+                    <!-- le paramètre value permettra de récupérer avec la méthode getIdProduit()
+                    la valeur saisie dans la zone idProd -->
+                    <h:inputText id="idProd" value="#{catalogManager.idProduit}" />
+                    <h:outputLabel id="nomProdLabel" for="nomProd" value="Nom produit" />
+                    <h:inputText id="nomProd" value="#{catalogManager.nomProduit}" />
+                    <h:outputLabel id="prixProd" for="prix" value="Prix" />
+                    <h:inputText id="prix" value="#{catalogManager.prix}" />
+                    <h:commandButton value="Valider" action="#{catalogManager.createProduct()}" />
+                      
+                </div>
+            </h:form>
+        </f:view>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Application eMarket avec JSF</title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                
+                <h1> Accueil </h1>
+                <p>Bienvenue sur Emarket</p>
+                <h:outputText value="Ceci est du texte" styleClass="orangetext" />
+                <h:outputLink value="http://www.supelec.fr" styleClass="orangetext"> Lien vers site supelec </h:outputLink><br/>
+                <h:outputText value="Texte en bleu" id="onebluetext"/>
+                <ul>
+                    <li> 
+                        <h:commandLink action="toCatalog">
+                            <h:outputText value="Catalogue" />
+                        </h:commandLink> <br />
+                    </li>
+                    <li>
+                        <h:commandLink action="toCommandes" >
+                            <h:outputText value="Panier de commande" />
+                        </h:commandLink>
+                    </li>
+                    <li>
+                        <h:commandLink action="createProduct" >
+                            <h:outputText value="Ajouter produit" />
+                        </h:commandLink>
+                    </li>
+                </ul>
+            
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

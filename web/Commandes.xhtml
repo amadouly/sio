@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Application eMarket avec JSF</title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <div>
+                    <p>Menu de gauche</p>
+                    <ul>
+                        <li>
+                            <h:commandLink action="toIndex">
+                                <h:outputText value ="Accueil" />
+                            </h:commandLink>
+                        </li>
+                    </ul>
+                </div>
+            <div>
+                <p>Page centrale</p>
+                <!-- Liste des produits commandés-->
+                <h:dataTable value="#{commandesManager.lstCommandes}" var="cde">
+                    <h:column> 
+                        <f:facet name="header"> CodeCde</f:facet>
+                        <h:outputText value="#{cde.idCommande}"/>
+                    </h:column>
+                    <h:column> 
+                        <f:facet name="header"> Produit </f:facet>
+                        <h:outputText value="#{cde.prod.nomProduit}"/>
+                    </h:column>
+                    <h:column> 
+                        <f:facet name="header"> Quantité </f:facet>
+                        <h:outputText value="#{cde.qtite}"/>
+                    </h:column>
+                </h:dataTable>
+            </div>
+            </h:form>
+        </f:view>    
+    </h:body>
+</html>
